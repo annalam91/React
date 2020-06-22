@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles/App.css';
-import TodoItem from './components/TodoItem';
-import todosData from './API/todosData';
 
-function App() {
-  const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
-  
-  return (
+class App extends Component {
+  constructor() {
+    super() 
+    this.state = {
+      name: "Anna",
+      age: 22
+    }
+  }
+
+  render() {
+    return (
       <div>
-          {todoItems}
+        <h1>{this.state.name}</h1>
+        <h3>{this.state.age} years old</h3>
       </div>
-  )
+    )
+  }
 }
 
 export default App
