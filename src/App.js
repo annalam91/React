@@ -1,17 +1,17 @@
 import React from 'react';
 import './styles/App.css';
-import Product from './components/products';
-import productData from './API/vschoolProducts';
+import TodoItem from './components/TodoItem';
+import todosData from './API/todosData';
 
 function App() {
-  const productComponents = productData.map(thing => <Product key={thing.id} product={thing}/>)
-  
   return (
-      <div>
-          {productComponents}
-      </div>
+    <div className="todo-list">
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
+    </div>
   )
 }
-
 
 export default App
