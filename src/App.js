@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Joke from './components/Jokes';
+import jokesData from './API/jokesData';
 
 function App() {
+  const jokeComponents = jokesData.map(joke => <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+          {jokeComponents}            
+      </div>
+  )
 }
 
-export default App;
+export default App
