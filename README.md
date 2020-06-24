@@ -11,7 +11,8 @@ This for individual learning. So far it has working demos of
 * Props
 * Mapping Components
 * States
-* Conditial Rendering.
+* Conditional Rendering.
+* Forms
 
 ### Todo-list
 ![Image of example todo app](https://github.com/annalam91/React/blob/todo-list/src/asset/screenshot-working-demo.png)
