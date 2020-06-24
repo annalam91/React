@@ -5,26 +5,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: true,
+      loading: false,
+      character: {}
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.setState((prevState) => {
-      return {
-        isLoggedIn: !prevState.isLoggedIn,
-      };
-    });
-  }
+  componentDidMount() {
+    this.setState({loading:true})
+    fetch("https://swapi.dev/api/people/1")
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            loading: false,
+            character: data
+          })
+        });
+    } 
 
   render() {
-    let buttonText = this.state.isLoggedIn ? "Log out" : "Log In";
-    let displayText = this.state.isLoggedIn ? "Logged In" : "Logged Out";
     return (
       <div className="App">
-        <h1>{displayText}</h1>
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <h3>{this.state.loading ? "Loading..." : this.state.character.name}</h3>
       </div>
     );
   }
