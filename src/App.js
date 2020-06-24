@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles/App.css';
-import TodoItem from './components/TodoItem';
-import todosData from "./api/todosData";
-
+import Product from './components/products';
+import productData from './api/productsData';
 class App extends React.Component {
   constructor() {
     super()
