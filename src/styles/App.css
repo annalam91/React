@@ -1,9 +1,3 @@
-/* #EF476F Strong red */
-/* #FFD166 Orange Yellow Crayola */
-/* #06D6A0 Caribbean Green */
-/* #118AB2 Blue NCS */
-/* #073B4C Midnight Green Eagle Green */
-
 body {
     background-color: whitesmoke;
 }
@@ -28,6 +22,7 @@ body {
             /* The third layer shadow */
         0 20px 1px -9px rgba(0,0,0,0.15);
     padding: 30px;
+    border-top-width: 5px;
 }
 
 .todo-item {
@@ -50,9 +45,4 @@ input[type=checkbox] {
 
 input[type=checkbox]:focus {
     outline: 0;
-}
-
-body {
-    background-color: whitesmoke;
-    text-align: center;
 }
