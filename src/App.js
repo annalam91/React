@@ -1,20 +1,33 @@
-import React from 'react';
-import './styles/App.css';
-import Product from './components/products';
-import productData from './api/productsData';
+import React from "react";
+import "./styles/App.css";
+
 class App extends React.Component {
   constructor() {
-    super()
+    super();
+    this.state = {
+      isLoggedIn: true,
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick() {
+    this.setState((prevState) => {
+      return {
+        isLoggedIn: !prevState.isLoggedIn,
+      };
+    });
+  }
+
   render() {
-  const productComponents = productData.map(thing => <Product key={thing.id} product={thing}/>)
-  
-  return (
-      <div>
-          {productComponents}
+    let buttonText = this.state.isLoggedIn ? "Log out" : "Log In";
+    let displayText = this.state.isLoggedIn ? "Logged In" : "Logged Out";
+    return (
+      <div className="App">
+        <h1>{displayText}</h1>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </div>
-  )
+    );
   }
 }
 
-export default App
+export default App;
