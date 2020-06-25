@@ -6,12 +6,12 @@ function App() {
   const [ count, setCount ] = useState(0)
   const [ color, setColor ] = useState("")
 
-  function increment() {
-    setCount(prevCount => prevCount + 1);
-  }
-  function decrement() {
-    setCount(prevCount => prevCount - 1);
-  }
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCount(prevCount => prevCount + 1)
+    }, 1000)
+    return () => clearInterval(intervalId)
+  }, [])
 
   useEffect(() => {
     setColor(randomColor())
@@ -20,8 +20,6 @@ function App() {
   return(
     <div>
       <h1 style={{color:color}}>{count}</h1>
-      <button style={{fontSize: "24px"}} onClick={increment}>+</button>
-      <button style={{fontSize: "24px"}} onClick={decrement}>-</button>
     </div>
   )
 }
