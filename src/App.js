@@ -1,36 +1,21 @@
-import React from "react";
-import "./styles/App.css";
-import FormComponent from './components/FormComponent';
+import React from 'react'
+import Header from './components/Header.jsx';
+import MemeGenerator from './components/MemeGenerator.jsx';
+import './styles/App.css';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: "",
-      lastName: "",
-      age: "",
-      gender: "",
-      destination: "",
-      vegetarian: false,
-      dairyFree: false,
-      nutFree: false,
-      glutenFree: false
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event){
-    const {name, value, type, checked} = event.target
-    type === "checkbox" ? this.setState({[name] : checked}) : this.setState({ [name]:value})
+  constructor(){
+    super()
   }
 
   render() {
     return(
-   <FormComponent
-   handleChange={this.handleChange}
-   data={this.state} />
+      <div>
+        <Header />
+        <MemeGenerator/>
+      </div>
     )
   }
 }
 
-export default App;
+export default App

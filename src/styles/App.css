@@ -1,10 +1,8 @@
-/* #EF476F Strong red */
-/* #FFD166 Orange Yellow Crayola */
-/* #06D6A0 Caribbean Green */
-/* #118AB2 Blue NCS */
-/* #073B4C Midnight Green Eagle Green */
+* {
+    box-sizing: border-box;
+}
 
 body {
+    margin: 0;
     background-color: whitesmoke;
-    text-align: center;
 }
