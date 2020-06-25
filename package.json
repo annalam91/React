@@ -29,5 +29,6 @@
     ]
   },
   "devDependencies": {
+    "react-icons": "^3.10.0"
   }
 }
