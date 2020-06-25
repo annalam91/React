@@ -20,4 +20,4 @@ This is a working demo of a very basic todo-list created solely in React. There 
 
 ### Meme-generator branch
 ![Image of meme generator](https://github.com/annalam91/React/blob/meme-generator/src/asset/screenshot-working-meme-generator.png)
-This is a working demo of a meme generator created solely in React. There is calling a valid API when clicking on the Gen button will render a new image. The two text boxes will add the text in the appropiate places. This has been seaparated into their own components.
+This is a working demo of a meme generator created solely in React. This is calling a valid API when clicking on the Gen button will render a new image. The two text boxes will add the text in the appropiate places. This has been seaparated into their own components.
