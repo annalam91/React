@@ -2,12 +2,22 @@ import React, {useState}  from "react";
 import "./styles/App.css";
 
 function App() {
-  const [ value ] = useState("Yes")
-  console.log(value)
+  const [ count, setCount ] = useState(0)
+  console.log(count)
+
+  function increment() {
+    setCount(prevCount => prevCount + 1);
+  }
+  function decrement() {
+    setCount(prevCount => prevCount - 1);
+  }
+
 
   return(
     <div>
-      <h3>Does this useState work? {value}</h3>
+      <h3>{count}</h3>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
     </div>
   )
 }
