@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
-import { firebase } from '../firebase';
+import firebase from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
 export const useTasks = selectedProject => {
@@ -11,7 +11,7 @@ export const useTasks = selectedProject => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw');
+      .where('userId', '==', 'cd8bd24d4d67456281204b105e89888b');
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -57,7 +57,7 @@ export const useProjects = () => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'jlIFXIwyAL3tzHMtzRbw')
+      .where('userId', '==', 'cd8bd24d4d67456281204b105e89888b')
       .orderBy('projectId')
       .get()
       .then(snapshot => {

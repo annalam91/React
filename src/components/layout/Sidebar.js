@@ -5,9 +5,9 @@ export const Sidebar = () =>
 (
 <   div className="sidebar">
         <ul className="sidebar__generic">
-            <li><span><FaInbox /></span><span>Inbox</span></li>
-            <li><span><FaRegCalendar /></span><span>Today</span></li>
-            <li><span><FaRegCalendarAlt /></span><span>Next 7 days</span></li>
+            <li className="inbox"><span><FaInbox /></span><span>Inbox</span></li>
+            <li className="today"><span><FaRegCalendar /></span><span>Today</span></li>
+            <li className="next_7"><span><FaRegCalendarAlt /></span><span>Next 7 days</span></li>
         </ul>
         <div className="sidebar__middle">
             <span><FaChevronDown /></span>

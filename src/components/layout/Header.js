@@ -11,8 +11,8 @@ export const Header = () => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li>+</li>
-                        <li><FaRegLightbulb /></li>
+                        <li className="settings__add">+</li>
+                        <li className="settings__darkmode "><FaRegLightbulb /></li>
                     </ul>
                 </div>
             </nav>
