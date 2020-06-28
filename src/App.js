@@ -1,14 +1,18 @@
 import React  from "react";
 import { Header } from "./components/layout/Header";
 import { Content } from "./components/layout/Content";
+import { ProjectsProvider, SelectedProjectProvider } from './context';
 
-function App() {
-  return(
-    <div>
-      <h1>Hola!</h1>
-      <Header />
-      <Content />
-    </div>
-  )
-}
-export default App;
+export const App = () =>  {
+
+  return (
+    <SelectedProjectProvider>
+      <ProjectsProvider>
+        <div className="App">
+          <Header />
+          <Content />
+        </div>
+      </ProjectsProvider>
+    </SelectedProjectProvider>
+    )
+};
