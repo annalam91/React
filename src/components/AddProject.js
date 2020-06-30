@@ -12,7 +12,7 @@ export const AddProject = ({
     const {setProjects} = useProjectsValue();
     const addProjects = () => {
         projectName && firebase.firestore().collection('projects').add({projectId, name: projectName, userId: 'cd8bd24d4d67456281204b105e89888b'}).then(() => {
-            setProjects([]);
+            setProjects([...projects]);
             setProjectName('');
             setShow(false);
         });
