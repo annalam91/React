@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import {FaSpaceShuttle, FaSun, FaRegPaperPlane} from 'react-icons/fa';
+import { GiMeal, GiFruitBowl } from 'react-icons/gi' 
 
 export const TaskDate = ({setTaskDate, showTaskDate, setShowTaskDate}) => showTaskDate && (
     <div className="task-date">
@@ -13,9 +13,9 @@ export const TaskDate = ({setTaskDate, showTaskDate, setShowTaskDate}) => showTa
                     }
                 }>
                     <span>
-                        <FaSpaceShuttle/>
+                        <GiMeal/>
                     </span>
-                    <span>Today</span>
+                    <span>Recipe</span>
                 </div>
             </li>
             <li>
@@ -26,13 +26,13 @@ export const TaskDate = ({setTaskDate, showTaskDate, setShowTaskDate}) => showTa
                     }
                 }>
                     <span>
-                        <FaSun/>
+                        <GiFruitBowl/>
                     </span>
-                    <span>Tomorrow</span>
+                    <span>Ingredients needed</span>
                 </div>
             </li>
             <li>
-                <div onClick={
+                {/* <div onClick={
                     () => {
                         setShowTaskDate(false);
                         setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
@@ -42,7 +42,7 @@ export const TaskDate = ({setTaskDate, showTaskDate, setShowTaskDate}) => showTa
                         <FaRegPaperPlane/>
                     </span>
                     <span>Next week</span>
-                </div>
+                </div> */}
             </li>
         </ul>
     </div>

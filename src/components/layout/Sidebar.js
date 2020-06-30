@@ -1,12 +1,13 @@
 import React, { useState }  from 'react';
-import { FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaChevronUp, } from 'react-icons/fa' 
+import { FaChevronDown, FaChevronUp, } from 'react-icons/fa' 
+import { GiMeal, GiFruitBowl } from 'react-icons/gi' 
 import { useSelectedProjectValue } from '../../context/selected-project-context';
 import { Projects } from '../Project';
 import { AddProject } from '../AddProject';
 
 export const Sidebar = () => {
     const { setSelectedProject } = useSelectedProjectValue();
-    const [ active, setActive]  = useState('inbox');
+    const [ active, setActive]  = useState('recipe');
     const [ showProjects, setShowProjects]  = useState(true);
 
     let isProjectAvailable;
@@ -19,15 +20,12 @@ export const Sidebar = () => {
 return (
     <div className="sidebar">
         <ul className="sidebar__generic">
-            <li className={active === 'inbox' ? 'active' : undefined }
-            onClick={() => {setActive('inbox'); setSelectedProject('INBOX');}}
-            ><span><FaInbox /></span><span>Inbox</span></li>
-            <li className={active === 'today' ? 'active' : undefined }
-            onClick={() => {setActive('today'); setSelectedProject('TODAY');}}
-            ><span><FaRegCalendar /></span><span>Today</span></li>
-            <li className={active === 'next_7' ? 'active' : undefined }
-            onClick={() => {setActive('next_7'); setSelectedProject('NEXT_7');}}
-            ><span><FaRegCalendarAlt /></span><span>Next 7 days</span></li>
+            <li className={active === 'recipe' ? 'active' : undefined }
+            onClick={() => {setActive('recipe'); setSelectedProject('RECIPE');}}
+            ><span><GiMeal /></span><span>Recipe</span></li>
+            <li className={active === 'ingredients_needed' ? 'active' : undefined }
+            onClick={() => {setActive('ingredients_needed'); setSelectedProject('INGREDIENTS_NEEDED');}}
+            ><span><GiFruitBowl /></span><span>Ingredients needed</span></li>
         </ul>
         <div className="sidebar__middle" onClick={() => setShowProjects(!showProjects)}>
             {isProjectAvailable}

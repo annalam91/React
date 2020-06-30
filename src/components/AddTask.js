@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {FaRegListAlt, FaRegCalendarAlt} from 'react-icons/fa';
-import moment from 'moment';
 import firebase from '../firebase';
 import {useSelectedProjectValue} from '../context';
 import {ProjectOverlay} from './ProjectOverlay';
@@ -25,11 +24,6 @@ export const AddTask = ({
         const projectId = project || selectedProject;
         let collatedDate = '';
 
-        if (projectId === 'TODAY') {
-            collatedDate = moment().format('DD/MM/YYYY');
-        } else if (projectId === 'NEXT_7') {
-            collatedDate = moment().add(7, 'days').format('DD/MM/YYYY');
-        }
         return(task && projectId && firebase.firestore().collection('tasks').add({
             archived: false,
             projectId,
@@ -52,15 +46,9 @@ export const AddTask = ({
             <div
               className="add-task__shallow"
               onClick={() => setShowMain(!showMain)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') setShowMain(!showMain);
-              }}
-              tabIndex={0}
-              aria-label="Add task"
-              role="button"
             >
               <span className="add-task__plus">+</span>
-              <span className="add-task__text">Add Task</span>
+              <span className="add-task__text">Add Food</span>
             </div>
           )}
     
@@ -69,7 +57,7 @@ export const AddTask = ({
               {showQuickAddTask && (
                 <>
                   <div>
-                    <h2 className="header">Quick Add Task</h2>
+                    <h2 className="header">Quick Add Food</h2>
                     <span
                       className="add-task__cancel-x"
                       aria-label="Cancel adding task"
@@ -78,15 +66,6 @@ export const AddTask = ({
                         setShowProjectOverlay(false);
                         setShowQuickAddTask(false);
                       }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          setShowMain(false);
-                          setShowProjectOverlay(false);
-                          setShowQuickAddTask(false);
-                        }
-                      }}
-                      tabIndex={0}
-                      role="button"
                     >
                       X
                     </span>
@@ -103,10 +82,9 @@ export const AddTask = ({
                 showTaskDate={showTaskDate}
                 setShowTaskDate={setShowTaskDate}
               />
-              <input
+              <textarea
                 className="add-task__content"
                 aria-label="Enter your task"
-                type="text"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
               />
@@ -119,7 +97,7 @@ export const AddTask = ({
                     : addTask()
                 }
               >
-                Add Task
+                Add Food
               </button>
               {!showQuickAddTask && (
                 <span

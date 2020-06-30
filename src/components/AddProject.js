@@ -12,7 +12,7 @@ export const AddProject = ({
     const {setProjects} = useProjectsValue();
     const addProjects = () => {
         projectName && firebase.firestore().collection('projects').add({projectId, name: projectName, userId: 'cd8bd24d4d67456281204b105e89888b'}).then(() => {
-            setProjects([...projects]);
+            setProjects([]);
             setProjectName('');
             setShow(false);
         });
@@ -29,12 +29,12 @@ export const AddProject = ({
                         }
                         className="add-project__name"
                         type="text"
-                        placeholder="Name your project"/>
+                        placeholder="Add meal type here "/>
                     <button className="add-project__submit" type="button"
                         onClick={
                             () => addProjects()
                     }>
-                        Add Project
+                        Add Meal
                     </button>
                     <span className="add-project__cancel"
                         onClick={
@@ -49,7 +49,7 @@ export const AddProject = ({
             <span className="add-project__text"
                 onClick={
                     () => setShow(!show)
-            }>Add Project</span>
+            }>Add Meal</span>
         </div>
     )
 }

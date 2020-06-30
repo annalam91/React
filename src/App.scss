@@ -35,8 +35,7 @@ rgba(0, 0, 0, 0.1) 0px 4px 11px;
 $generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
-/* Mixins
-  ============================================ */
+// Mixins
 @mixin box-overlay() {
   -webkit-box-shadow: $generic-box-shadow;
   box-shadow: $generic-box-shadow;
@@ -134,8 +133,7 @@ $generic-bg: #db4c3f;
   }
 }
 
-/* Darkmode
-  ============================================ */
+// Darkmode
 .darkmode {
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
@@ -145,8 +143,7 @@ $generic-bg: #db4c3f;
   }
 }
 
-/* Header
-  ============================================ */
+// Header
 header {
   border-bottom: solid 1px #ca2100;
   background-color: $generic-bg;
@@ -550,9 +547,10 @@ header {
     border: 1px solid #ddd;
     background-color: white !important;
     border-radius: 3px;
-    height: 35px;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 8px;
+    height: 75px;
   }
 
   &__cancel, &__submit {
