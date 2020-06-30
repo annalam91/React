@@ -3,6 +3,8 @@ import {FaRegListAlt, FaRegCalendarAlt} from 'react-icons/fa';
 import moment from 'moment';
 import firebase from '../firebase';
 import {useSelectedProjectValue} from '../context';
+import {ProjectOverlay} from './ProjectOverlay';
+import {TaskDate} from './TaskDate';
 
 export const AddTask = ({
     showAddTaskMain = true,
@@ -11,7 +13,7 @@ export const AddTask = ({
     setShowQuickAddTask
 }) => {
     const [task, setTask] = useState('');
-    const [taskDate, setTakeDate] = useState('');
+    const [taskDate, setTaskDate] = useState('');
     const [project, setProject] = useState('');
     const [showMain, setShowMain] = useState(shouldShowMain);
     const [showProjectOverlay, setShowProjectOverlay] = useState(false);
@@ -43,73 +45,108 @@ export const AddTask = ({
     }
 
     return (
-        <div className={
-            showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'
-        }>
-            {
-            showAddTaskMain && (
-                <div className="add-task__shallow"
-                    onClick={
-                        () => setShowMain(!showMain)
-                }>
-                    <span className="add-task__plus">+</span>
-                    <span className="add-task__text">Add Task</span>
-                </div>
-            )
-        }
-
-            {
-            (showMain || showQuickAddTask) && (
-                <div className="add-task__main">
-                    {
-                    showQuickAddTask && (
-                        <>
-                            <div>
-                                <h2 className="header">Quick Add Task</h2>
-                                <span className="add-task__cancel-x"
-                                    onClick={
-                                        () => {
-                                            setShowMain(false);
-                                            setShowProjectOverlay(false);
-                                            setShowQuickAddTask(false);
-                                        }
-                                }>
-                                    X
-                                </span>
-                            </div>
-                        </>
-                    )
+        <div
+          className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+        >
+          {showAddTaskMain && (
+            <div
+              className="add-task__shallow"
+              onClick={() => setShowMain(!showMain)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') setShowMain(!showMain);
+              }}
+              tabIndex={0}
+              aria-label="Add task"
+              role="button"
+            >
+              <span className="add-task__plus">+</span>
+              <span className="add-task__text">Add Task</span>
+            </div>
+          )}
+    
+          {(showMain || showQuickAddTask) && (
+            <div className="add-task__main">
+              {showQuickAddTask && (
+                <>
+                  <div>
+                    <h2 className="header">Quick Add Task</h2>
+                    <span
+                      className="add-task__cancel-x"
+                      aria-label="Cancel adding task"
+                      onClick={() => {
+                        setShowMain(false);
+                        setShowProjectOverlay(false);
+                        setShowQuickAddTask(false);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          setShowMain(false);
+                          setShowProjectOverlay(false);
+                          setShowQuickAddTask(false);
+                        }
+                      }}
+                      tabIndex={0}
+                      role="button"
+                    >
+                      X
+                    </span>
+                  </div>
+                </>
+              )}
+              <ProjectOverlay
+                setProject={setProject}
+                showProjectOverlay={showProjectOverlay}
+                setShowProjectOverlay={setShowProjectOverlay}
+              />
+              <TaskDate
+                setTaskDate={setTaskDate}
+                showTaskDate={showTaskDate}
+                setShowTaskDate={setShowTaskDate}
+              />
+              <input
+                className="add-task__content"
+                aria-label="Enter your task"
+                type="text"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+              />
+              <button
+                type="button"
+                className="add-task__submit"
+                onClick={() =>
+                  showQuickAddTask
+                    ? addTask() && setShowQuickAddTask(false)
+                    : addTask()
                 }
-                    <p>Project overlay here</p>
-                    <p>TaskDate here</p>
-                    <input className="add-task__content" type="text"
-                        value={task}
-                        onChange={
-                            e => setTask(e.target.value)
-                        }/>
-                    <button type="button" className="ask-task__submit"
-                        onClick={
-                            () => addTask()
-                    }>Add Task</button>
-                    {
-                    !showQuickAddTask && (
-                        <span className="add-task__cancel"
-                            onClick={
-                                () => {
-                                    setShowMain(false);
-                                    setShowProjectOverlay(false)
-                                }
-                        }>Cancel</span>
-                    )
-                }
-                    <span className="add-task__project"
-                        onClick={
-                            () => setShowProjectOverlay(!showProjectOverlay)
-                    }><FaRegListAlt/></span>
-                    <span><FaRegCalendarAlt/></span>
-                </div>
-            )
-        } </div>
-
-    );
-}
+              >
+                Add Task
+              </button>
+              {!showQuickAddTask && (
+                <span
+                  className="add-task__cancel"
+                  onClick={() => {
+                    setShowMain(false);
+                    setShowProjectOverlay(false);
+                  }}
+                >
+                  Cancel
+                </span>
+              )}
+              <span
+                className="add-task__project"
+                onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+              >
+                <FaRegListAlt />
+              </span>
+              <span
+                className="add-task__date"
+                onClick={() => setShowTaskDate(!showTaskDate)}
+              >
+                <FaRegCalendarAlt />
+              </span>
+            </div>
+          )}
+        </div>
+      );
+    };
+    
