@@ -29,3 +29,7 @@ This is a working demo of a meme generator created solely in React. This is call
 ### recipe-app branch
 ![Image of Recipe App](https://github.com/annalam91/React/blob/recipeApp/src/asset/screenshot-working-recipe-app.png)
 This is a working demo of a recipe app integrated with firebase, custom hooks, SCSS, React. This is very loosely based of todoist app but adapted to use recipes. Whilst following a youtube tutorial I have also added my own additional touches with the skills I have learnt over time. 
+
+### WeatherApp
+![Image of Weather App](https://github.com/annalam91/React/blob/WeatherApp/src/asset/screenshot-working-weather-app.png)
+This is a working demo of a weather app. Pulling in the data from OpenWeather API with CSS and React. This is a sole project where it was completed within a day not following any tutorials. Although this is completed and working as to how I like it however, the styling is still a work in progress.
