@@ -4,7 +4,11 @@
 /* #118AB2 Blue NCS */
 /* #073B4C Midnight Green Eagle Green */
 
-body {
-    background-color: whitesmoke;
-    text-align: center;
+body{
+    position:absolute;
+    top: 2%;
+    background-color:#00206A;
+    left:35%;
+    width:50%;
+    height: 50%;
 }

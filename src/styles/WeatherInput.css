@@ -1,0 +1,45 @@
+.weather-input {
+  display: inline;
+  position: absolute;
+}
+
+input[type="text"] {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #00206A;
+  color: #FFFBEB;
+  padding-left: 40px;
+}
+
+input:focus {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#search {
+  font-size: 28px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  color: #FFFBEB;
+}
+
+#search:focus{
+  outline:none;
+}
