@@ -44,10 +44,10 @@ function Counter() {
 
       <h3>useState example two </h3>
       <button onClick={() => setSecondExampleCount(secondExampleCount + 1)}>
-        Increment 
+        Increment
       </button>
       <button onClick={() => setSecondExampleCount(secondExampleCount - 1)}>
-        Decrement 
+        Decrement
       </button>
       <button onClick={incrementFive}>Incrment by 5 </button>
       <button onClick={() => setSecondExampleCount(secondCount)}>Reset</button>
