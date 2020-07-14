@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./styles/App.css";
 import Counter from "./components/Counter";
 import CounterUseEffect from "./components/CounterUseEffect";
@@ -6,11 +6,32 @@ import MouseEventUseEffect from "./components/MouseEventUseEffect";
 import IntervalCounter from "./components/IntervalCounter";
 import DataFetching from "./components/DataFetching";
 import ContextHooks from "./components/ContextHooks";
+import ReducerCounter from "./components/ReducerCounter";
+import ReducerComplexCounter from "./components/ReducerComplexCounter";
+import MultipleUseReducer from "./components/MultipleUseReducer";
+import UseReducerUseContextExample from "./components/UseReducerUseContextExample";
+import UseReducerUseContextAnother from "./components/UseReducerUseContextAnother";
 
 export const UserContext = React.createContext();
 export const TutorialContext = React.createContext();
+export const CountContext = React.createContext();
+
+const intitalState = 0;
+const reducer = (currentState, action) => {
+  switch (action) {
+    case "increment":
+      return currentState + 1;
+    case "decrement":
+      return currentState - 1;
+    case "reset":
+      return intitalState;
+    default:
+      return currentState;
+  }
+};
 
 function App() {
+  const [count, dispatch] = useReducer(reducer, intitalState);
   const [selected, setSelected] = useState();
 
   const handleSelect = (e) => {
@@ -33,14 +54,27 @@ function App() {
       {selected === "useEffect" && <DataFetching />}
       <br />
       <button id="useContext" onClick={handleSelect}>
-        useEffect example:
+        useContext example:
       </button>
       <UserContext.Provider value={"Username: Anna"}>
         <TutorialContext.Provider value={"React Hooks tutorials"}>
-        {selected === "useContext" && <ContextHooks />}
-        <br />
+          {selected === "useContext" && <ContextHooks />}
+          <br />
         </TutorialContext.Provider>
       </UserContext.Provider>
+      <button id="useReducer" onClick={handleSelect}>
+        useReducer example:
+      </button>
+      {selected === "useReducer" && <ReducerCounter />}
+      {selected === "useReducer" && <ReducerComplexCounter />}
+      {selected === "useReducer" && <MultipleUseReducer />}
+      <CountContext.Provider
+        value={{ countState: count, countDispatch: dispatch }}
+      >
+        {selected === "useReducer" && <b>App.js - Count - {count}</b> }
+        {selected === "useReducer" && <UseReducerUseContextExample />}
+        {selected === "useReducer" && <UseReducerUseContextAnother />}
+      </CountContext.Provider>
     </div>
   );
 }
