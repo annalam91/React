@@ -11,6 +11,8 @@ import ReducerComplexCounter from "./components/ReducerComplexCounter";
 import MultipleUseReducer from "./components/MultipleUseReducer";
 import UseReducerUseContextExample from "./components/UseReducerUseContextExample";
 import UseReducerUseContextAnother from "./components/UseReducerUseContextAnother";
+import DataFetchingUsingReducer from "./components/DataFetchingUsingReducer";
+import Comparsion from "./components/Comparsion";
 
 export const UserContext = React.createContext();
 export const TutorialContext = React.createContext();
@@ -40,6 +42,11 @@ function App() {
 
   return (
     <div>
+      <button id="comparsion" onClick={handleSelect}>
+        Comparsion - When to use:
+      </button>
+      {selected === "comparsion" && <Comparsion />}
+      <br />
       <button id="useState" onClick={handleSelect}>
         useState example:
       </button>
@@ -75,6 +82,7 @@ function App() {
         {selected === "useReducer" && <UseReducerUseContextExample />}
         {selected === "useReducer" && <UseReducerUseContextAnother />}
       </CountContext.Provider>
+        {selected === "useReducer" && <DataFetchingUsingReducer />}
     </div>
   );
 }
