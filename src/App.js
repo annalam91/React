@@ -14,6 +14,7 @@ import UseReducerUseContextAnother from "./components/UseReducerUseContextAnothe
 import DataFetchingUsingReducer from "./components/DataFetchingUsingReducer";
 import Comparsion from "./components/Comparsion";
 import ParentComponent from "./components/useCallbackExample/ParentComponent";
+import CounterUseMemo from './components/CounterUseMemo';
 
 export const UserContext = React.createContext();
 export const TutorialContext = React.createContext();
@@ -89,6 +90,11 @@ function App() {
         useCallback example:
       </button>
       {selected === "useCallback" && <ParentComponent />}
+      <br />
+        <button id="useMemo" onClick={handleSelect}>
+        useMemo example:
+      </button>
+      {selected === "useMemo" && <CounterUseMemo />}
 
     </div>
   );
