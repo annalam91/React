@@ -13,6 +13,7 @@ import UseReducerUseContextExample from "./components/UseReducerUseContextExampl
 import UseReducerUseContextAnother from "./components/UseReducerUseContextAnother";
 import DataFetchingUsingReducer from "./components/DataFetchingUsingReducer";
 import Comparsion from "./components/Comparsion";
+import ParentComponent from "./components/useCallbackExample/ParentComponent";
 
 export const UserContext = React.createContext();
 export const TutorialContext = React.createContext();
@@ -83,6 +84,12 @@ function App() {
         {selected === "useReducer" && <UseReducerUseContextAnother />}
       </CountContext.Provider>
         {selected === "useReducer" && <DataFetchingUsingReducer />}
+        <br />
+        <button id="useCallback" onClick={handleSelect}>
+        useCallback example:
+      </button>
+      {selected === "useCallback" && <ParentComponent />}
+
     </div>
   );
 }
