@@ -16,6 +16,11 @@ This for individual learning. So far it has working demos of
 * React Hooks
     * useState
     * useEffect
+    * useContext
+    * useReducer
+    * useCallback
+    * useMemo
+    * useRef
 
 ### Todo-list branch
 ![Image of example todo app](https://github.com/annalam91/React/blob/todo-list/src/asset/screenshot-working-demo.png)
@@ -33,3 +38,7 @@ This is a working demo of a recipe app integrated with firebase, custom hooks, S
 ### WeatherApp
 ![Image of Weather App](https://github.com/annalam91/React/blob/WeatherApp/src/asset/screenshot-working-weather-app.png)
 This is a working demo of a weather app. Pulling in the data from OpenWeather API with CSS and React. This is a sole project where it was completed within a day not following any tutorials. Although this is completed and working as to how I like it however, the styling is still a work in progress.
+
+### react-hooks
+![Image of React hooks](https://github.com/annalam91/React/blob/react-hooks/src/asset/screenshot-react-hooks.png)
+This was the final results of learning about React hooks following Youtube react-hook series from CodeEvolution. This helped secured my knowledge of how to use react hooks correctly and gave me a deeper understanding of react hooks. 
