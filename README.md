@@ -33,3 +33,7 @@ This is a working demo of a recipe app integrated with firebase, custom hooks, S
 ### WeatherApp
 ![Image of Weather App](https://github.com/annalam91/React/blob/WeatherApp/src/asset/screenshot-working-weather-app.png)
 This is a working demo of a weather app. Pulling in the data from OpenWeather API with CSS and React. This is a sole project where it was completed within a day not following any tutorials. Although this is completed and working as to how I like it however, the styling is still a work in progress.
+
+### mern-example
+![Image of node and react app](https://github.com/annalam91/React/blob/mern-example/src/asset/screenshot-basic-node-react-demo.png)
+This is a basic working demo of a full stack applcation using node in the backend supported with Express using react in the front end. 
